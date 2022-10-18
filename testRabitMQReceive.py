@@ -9,12 +9,12 @@ def main():
     logging.info('Start')                   
     user = 'guest'
     password = 'guest'    
-    host = '0.tcp.ngrok.io'
+    host = '8.tcp.ngrok.io'
     vHost = '/'
     userWB = ''
     passwordWB = ''
     queueWB = userWB+'-'+passwordWB
-    port = 10083
+    port = 15532
     credentials = pika.PlainCredentials(user, password)
     connection = pika.BlockingConnection(pika.ConnectionParameters(host,
                                                                    port,
