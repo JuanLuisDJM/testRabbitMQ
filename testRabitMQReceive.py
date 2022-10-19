@@ -9,12 +9,12 @@ def main():
     logging.info('Start')                   
     user = 'guest'
     password = 'guest'    
-    host = '8.tcp.ngrok.io'
+    host = '0.tcp.ngrok.io'
     vHost = '/'
     userWB = ''
     passwordWB = ''
     queueWB = userWB+'-'+passwordWB
-    port = 15532
+    port = 16211
     credentials = pika.PlainCredentials(user, password)
     connection = pika.BlockingConnection(pika.ConnectionParameters(host,
                                                                    port,
@@ -29,7 +29,7 @@ def main():
         print(" [x] Received %r" % body)
         logging.info(" [x] Received %r", body)
 
-    # channel.basic_consume(queue='hello', on_message_callback=callback, auto_ack=False)
+    channel.basic_consume(queue='hello', on_message_callback=callback, auto_ack=False)
 
     print(' [*] Waiting for messages. To exit press CTRL+C')
     channel.start_consuming()
